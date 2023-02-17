@@ -1,5 +1,6 @@
 package com.github.cesar1287.pingpongx
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.github.cesar1287.pingpongx.PlayerActivity.Companion.INTENT_PLAYER_AWAY_KEY
@@ -67,6 +68,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun getWinner(): String {
+        return if (playerHomeScore > playerAwayScore) {
+            binding.tvMainPlayerHome.text.toString()
+        } else if (playerAwayScore > playerHomeScore) {
+            binding.tvMainPlayerAway.text.toString()
+        } else {
+            getString(R.string.draw_label)
+        }
+    }
+
+    override fun finish() {
+        val ret = Intent()
+        ret.putExtra(INTENT_WINNER_PLAYER, getWinner())
+        setResult(RESULT_OK, ret)
+        super.finish()
+    }
+
+
     private fun rematch() {
         setupPlayHomeScore()
         setupPlayAwayScore()
@@ -81,6 +100,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
+        const val INTENT_WINNER_PLAYER = "winnerPlayer"
+
         private const val PLAYER_HOME_SCORE = "playerHomeScore"
         private const val PLAYER_AWAY_SCORE = "playerAwayScore"
     }

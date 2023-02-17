@@ -13,4 +13,7 @@
     <string name="rematch_button">revanche</string>
     <string name="hint_home_player">Nome do jogador da Casa</string>
     <string name="hint_away_player">Nome do jogador Visitante</string>
+    <string name="draw_label">Empate</string>
+
+    <string name="winner_placeholder">Parabéns jogador %1$s, você venceu</string>
 </resources>
