@@ -8,6 +8,9 @@ import com.github.cesar1287.pingpongx.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private var playerHomeScore = 0
+    private var playerAwayScore = 0
+
     private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
@@ -22,6 +25,39 @@ class MainActivity : AppCompatActivity() {
         with(binding) {
             tvMainPlayerHome.text = playerHome
             tvMainPlayerAway.text = playerAway
+        }
+
+        setupListeners()
+    }
+
+    private fun setupListeners() {
+        with(binding) {
+            btMainScoreHome.setOnClickListener {
+                playerHomeScore += 1
+                tvMainScoreHome.text = playerHomeScore.toString()
+            }
+
+            btMainScoreAway.setOnClickListener {
+                playerAwayScore += 1
+                tvMainScoreAway.text = playerAwayScore.toString()
+            }
+
+            btMainRematch.setOnClickListener {
+                playerHomeScore = 0
+                playerAwayScore = 0
+                rematch()
+            }
+
+            btMainEndGame.setOnClickListener {
+                finish()
+            }
+        }
+    }
+
+    private fun rematch() {
+        with(binding) {
+            tvMainScoreHome.text = playerHomeScore.toString()
+            tvMainScoreAway.text = playerAwayScore.toString()
         }
     }
 }
