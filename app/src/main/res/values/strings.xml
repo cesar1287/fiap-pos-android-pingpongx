@@ -4,4 +4,11 @@
     <string name="fill_form_label">Preencha os campos</string>
     <string name="developed_by_label">Desenvolvido por César Rodrigues</string>
     <string name="start_game_button">Começar</string>
+    <string name="score_default">0</string>
+    <string name="versus_label">x</string>
+    <string name="home_label">casa</string>
+    <string name="away_label">visitante</string>
+    <string name="score_label">ponto</string>
+    <string name="end_game_button">Terminar partida</string>
+    <string name="rematch_button">revanche</string>
 </resources>

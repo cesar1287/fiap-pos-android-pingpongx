@@ -7,12 +7,106 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tvMainAppName"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="16dp"
+        android:text="@string/app_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvMainScoreHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/score_default"
+        android:textSize="100sp"
+        app:layout_constraintEnd_toStartOf="@id/tvMainVersus"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvMainAppName" />
+
+    <TextView
+        android:id="@+id/tvMainVersus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/versus_label"
+        android:textSize="100sp"
+        app:layout_constraintEnd_toStartOf="@id/tvMainScoreAway"
+        app:layout_constraintStart_toEndOf="@id/tvMainScoreHome"
+        app:layout_constraintTop_toTopOf="@id/tvMainScoreHome" />
+
+    <TextView
+        android:id="@+id/tvMainScoreAway"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:text="@string/score_default"
+        android:textSize="100sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvMainVersus"
+        app:layout_constraintTop_toTopOf="@id/tvMainScoreHome" />
+
+    <TextView
+        android:id="@+id/tvMainPlayerHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/home_label"
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="@id/tvMainScoreHome"
+        app:layout_constraintTop_toBottomOf="@id/tvMainScoreHome" />
+
+    <TextView
+        android:id="@+id/tvMainPlayerAway"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/away_label"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="@id/tvMainScoreAway"
+        app:layout_constraintTop_toTopOf="@id/tvMainPlayerHome" />
+
+    <Button
+        android:id="@+id/btMainScoreHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/score_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvMainPlayerHome" />
+
+    <Button
+        android:id="@+id/btMainScoreAway"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/score_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btMainScoreHome" />
+
+    <Button
+        android:id="@+id/btMainEndGame"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/end_game_button"
+        app:layout_constraintEnd_toEndOf="@id/btMainScoreAway"
+        app:layout_constraintStart_toStartOf="@id/btMainScoreHome"
+        app:layout_constraintTop_toBottomOf="@id/btMainScoreHome" />
+
+    <Button
+        android:id="@+id/btMainRematch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="@string/rematch_button"
+        app:layout_constraintEnd_toEndOf="@id/btMainEndGame"
+        app:layout_constraintStart_toStartOf="@id/btMainEndGame"
+        app:layout_constraintTop_toBottomOf="@id/btMainEndGame" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
