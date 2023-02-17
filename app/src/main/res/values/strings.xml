@@ -11,4 +11,6 @@
     <string name="score_label">ponto</string>
     <string name="end_game_button">Terminar partida</string>
     <string name="rematch_button">revanche</string>
+    <string name="hint_home_player">Nome do jogador da Casa</string>
+    <string name="hint_away_player">Nome do jogador Visitante</string>
 </resources>

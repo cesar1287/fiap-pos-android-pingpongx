@@ -36,6 +36,27 @@
         app:layout_constraintStart_toStartOf="@id/tvPlayerAppName"
         app:layout_constraintTop_toBottomOf="@id/tvPlayerStartGame" />
 
+    <EditText
+        android:id="@+id/etPlayerHome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:hint="@string/hint_home_player"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@id/tvPlayerFillForm"
+        app:layout_constraintStart_toStartOf="@id/tvPlayerFillForm"
+        app:layout_constraintTop_toBottomOf="@id/tvPlayerFillForm"/>
+
+    <EditText
+        android:id="@+id/etPlayerAway"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="@string/hint_away_player"
+        app:layout_constraintTop_toBottomOf="@id/etPlayerHome"
+        app:layout_constraintStart_toStartOf="@id/etPlayerHome"
+        app:layout_constraintEnd_toEndOf="@id/etPlayerHome"/>
+
     <Button
         android:id="@+id/btPlayerStartGame"
         android:layout_width="0dp"
