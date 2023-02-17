@@ -22,6 +22,13 @@ class MainActivity : AppCompatActivity() {
         val playerHome = intent.getStringExtra(INTENT_PLAYER_HOME_KEY)
         val playerAway = intent.getStringExtra(INTENT_PLAYER_AWAY_KEY)
 
+        savedInstanceState?.let {
+            playerHomeScore = it.getInt(PLAYER_HOME_SCORE)
+            playerAwayScore = it.getInt(PLAYER_AWAY_SCORE)
+            setupPlayHomeScore()
+            setupPlayAwayScore()
+        }
+
         with(binding) {
             tvMainPlayerHome.text = playerHome
             tvMainPlayerAway.text = playerAway
@@ -30,16 +37,22 @@ class MainActivity : AppCompatActivity() {
         setupListeners()
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt(PLAYER_HOME_SCORE, playerHomeScore)
+        outState.putInt(PLAYER_AWAY_SCORE, playerAwayScore)
+    }
+
     private fun setupListeners() {
         with(binding) {
             btMainScoreHome.setOnClickListener {
                 playerHomeScore += 1
-                tvMainScoreHome.text = playerHomeScore.toString()
+                setupPlayHomeScore()
             }
 
             btMainScoreAway.setOnClickListener {
                 playerAwayScore += 1
-                tvMainScoreAway.text = playerAwayScore.toString()
+                setupPlayAwayScore()
             }
 
             btMainRematch.setOnClickListener {
@@ -55,9 +68,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun rematch() {
-        with(binding) {
-            tvMainScoreHome.text = playerHomeScore.toString()
-            tvMainScoreAway.text = playerAwayScore.toString()
-        }
+        setupPlayHomeScore()
+        setupPlayAwayScore()
+    }
+
+    private fun setupPlayHomeScore() {
+        binding.tvMainScoreHome.text = playerHomeScore.toString()
+    }
+
+    private fun setupPlayAwayScore() {
+        binding.tvMainScoreAway.text = playerAwayScore.toString()
+    }
+
+    companion object {
+        private const val PLAYER_HOME_SCORE = "playerHomeScore"
+        private const val PLAYER_AWAY_SCORE = "playerAwayScore"
     }
 }
