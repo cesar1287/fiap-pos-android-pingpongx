@@ -3,6 +3,10 @@ package com.github.cesar1287.pingpongx
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.github.cesar1287.pingpongx.Constants.KEY_RESULT_EXTRA_PLAYER_AWAY_NAME
+import com.github.cesar1287.pingpongx.Constants.KEY_RESULT_EXTRA_PLAYER_AWAY_SCORE
+import com.github.cesar1287.pingpongx.Constants.KEY_RESULT_EXTRA_PLAYER_HOME_NAME
+import com.github.cesar1287.pingpongx.Constants.KEY_RESULT_EXTRA_PLAYER_HOME_SCORE
 import com.github.cesar1287.pingpongx.PlayerActivity.Companion.INTENT_PLAYER_AWAY_KEY
 import com.github.cesar1287.pingpongx.PlayerActivity.Companion.INTENT_PLAYER_HOME_KEY
 import com.github.cesar1287.pingpongx.databinding.ActivityMainBinding
@@ -81,6 +85,12 @@ class MainActivity : AppCompatActivity() {
     override fun finish() {
         val ret = Intent()
         ret.putExtra(INTENT_WINNER_PLAYER, getWinner())
+        with(binding) {
+            ret.putExtra(KEY_RESULT_EXTRA_PLAYER_HOME_NAME, tvMainPlayerHome.text.toString())
+            ret.putExtra(KEY_RESULT_EXTRA_PLAYER_AWAY_NAME, tvMainPlayerAway.text.toString())
+            ret.putExtra(KEY_RESULT_EXTRA_PLAYER_HOME_SCORE, tvMainScoreHome.text.toString().toInt())
+            ret.putExtra(KEY_RESULT_EXTRA_PLAYER_AWAY_SCORE, tvMainScoreAway.text.toString().toInt())
+        }
         setResult(RESULT_OK, ret)
         super.finish()
     }

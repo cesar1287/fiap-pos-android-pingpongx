@@ -41,21 +41,36 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:hint="@string/hint_home_player"
         android:layout_marginTop="32dp"
+        android:autofillHints="name"
+        android:hint="@string/hint_home_player"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="@id/tvPlayerFillForm"
         app:layout_constraintStart_toStartOf="@id/tvPlayerFillForm"
-        app:layout_constraintTop_toBottomOf="@id/tvPlayerFillForm"/>
+        app:layout_constraintTop_toBottomOf="@id/tvPlayerFillForm" />
 
     <EditText
         android:id="@+id/etPlayerAway"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:autofillHints="name"
         android:hint="@string/hint_away_player"
-        app:layout_constraintTop_toBottomOf="@id/etPlayerHome"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@id/etPlayerHome"
         app:layout_constraintStart_toStartOf="@id/etPlayerHome"
-        app:layout_constraintEnd_toEndOf="@id/etPlayerHome"/>
+        app:layout_constraintTop_toBottomOf="@id/etPlayerHome" />
+
+    <TextView
+        android:id="@+id/tvPlayerResultLastGame"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/etPlayerAway"
+        app:layout_constraintStart_toStartOf="@id/etPlayerAway"
+        app:layout_constraintTop_toBottomOf="@id/etPlayerAway"
+        tools:text="O jogo entre Batman e Robin terminou 7 a 1" />
 
     <Button
         android:id="@+id/btPlayerStartGame"
