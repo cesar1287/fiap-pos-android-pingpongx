@@ -1,6 +1,7 @@
 package com.github.cesar1287.pingpongx
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -29,6 +30,17 @@ class PlayerActivity : AppCompatActivity() {
                 startActivityForResult(intent, WINNER_REQUEST_CODE)
             }
         }
+
+//        binding.btPlayerTest.setOnClickListener {
+//            val sendIntent = Intent()
+//            sendIntent.action = Intent.ACTION_SEND
+//            sendIntent.putExtra(Intent.EXTRA_TEXT, "Mensagem")
+//            sendIntent.type = "text/plain"
+//            sendIntent.setPackage("com.whatsapp")
+//            if (sendIntent.resolveActivity(packageManager) != null) {
+//                startActivity(sendIntent)
+//            }
+//        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

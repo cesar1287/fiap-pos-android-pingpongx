@@ -72,6 +72,15 @@
         app:layout_constraintTop_toBottomOf="@id/etPlayerAway"
         tools:text="O jogo entre Batman e Robin terminou 7 a 1" />
 
+<!--    <Button-->
+<!--        android:id="@+id/btPlayerTest"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintStart_toStartOf="@id/btPlayerStartGame"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/btPlayerStartGame"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/btPlayerStartGame"-->
+<!--        android:text="Test"/>-->
+
     <Button
         android:id="@+id/btPlayerStartGame"
         android:layout_width="0dp"
