@@ -109,4 +109,14 @@
         app:layout_constraintStart_toStartOf="@id/btMainEndGame"
         app:layout_constraintTop_toBottomOf="@id/btMainEndGame" />
 
+    <Button
+        android:id="@+id/btMainShare"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/share_whatsapp"
+        app:layout_constraintEnd_toEndOf="@id/btMainRematch"
+        app:layout_constraintStart_toStartOf="@id/btMainRematch"
+        app:layout_constraintTop_toBottomOf="@id/btMainRematch" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

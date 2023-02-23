@@ -18,4 +18,5 @@
     <string name="winner_placeholder">Parabéns jogador %1$s, você venceu</string>
 
     <string name="message_to_share">O jogo entre %1$s e %2$s terminou %3$d a %4$d</string>
+    <string name="share_whatsapp">Compartilhar com o WhatsApp</string>
 </resources>

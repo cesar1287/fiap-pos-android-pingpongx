@@ -1,6 +1,8 @@
 package com.github.cesar1287.pingpongx
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.github.cesar1287.pingpongx.Constants.KEY_RESULT_EXTRA_PLAYER_AWAY_NAME
@@ -68,6 +70,37 @@ class MainActivity : AppCompatActivity() {
 
             btMainEndGame.setOnClickListener {
                 finish()
+            }
+
+            btMainShare.setOnClickListener {
+                shareWhatsApp()
+            }
+        }
+    }
+
+    private fun shareWhatsApp() {
+        try {
+            val whatsAppIntent = Intent(Intent.ACTION_SEND)
+            whatsAppIntent.type = "text/plain"
+            whatsAppIntent.setPackage("com.whatsapp")
+
+            val message = getString(
+                R.string.message_to_share,
+                binding.tvMainPlayerHome.text.toString(),
+                binding.tvMainPlayerAway.text.toString(),
+                binding.tvMainScoreHome.text.toString().toInt(),
+                binding.tvMainScoreAway.text.toString().toInt()
+            )
+
+            whatsAppIntent.putExtra(Intent.EXTRA_TEXT, message)
+            startActivity(whatsAppIntent)
+        } catch (e: ActivityNotFoundException) {
+            //Toast.makeText(this, "WhatsApp não instalado", Toast.LENGTH_LONG).show()
+            val appPackageName = "com.whatsapp"
+            try {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$appPackageName")))
+            } catch (anfe: ActivityNotFoundException) {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$appPackageName")))
             }
         }
     }
