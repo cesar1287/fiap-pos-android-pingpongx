@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
 import com.github.cesar1287.pingpongx.Constants.KEY_RESULT_EXTRA_PLAYER_AWAY_NAME
 import com.github.cesar1287.pingpongx.Constants.KEY_RESULT_EXTRA_PLAYER_AWAY_SCORE
 import com.github.cesar1287.pingpongx.Constants.KEY_RESULT_EXTRA_PLAYER_HOME_NAME
@@ -15,11 +16,12 @@ import com.github.cesar1287.pingpongx.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private var playerHomeScore = 0
-    private var playerAwayScore = 0
-
     private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
+    }
+
+    private val viewModel: MainViewModel by lazy {
+        ViewModelProvider(this)[MainViewModel::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,13 +31,6 @@ class MainActivity : AppCompatActivity() {
         val playerHome = intent.getStringExtra(INTENT_PLAYER_HOME_KEY)
         val playerAway = intent.getStringExtra(INTENT_PLAYER_AWAY_KEY)
 
-        savedInstanceState?.let {
-            playerHomeScore = it.getInt(PLAYER_HOME_SCORE)
-            playerAwayScore = it.getInt(PLAYER_AWAY_SCORE)
-            setupPlayHomeScore()
-            setupPlayAwayScore()
-        }
-
         with(binding) {
             tvMainPlayerHome.text = playerHome
             tvMainPlayerAway.text = playerAway
@@ -44,28 +39,18 @@ class MainActivity : AppCompatActivity() {
         setupListeners()
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putInt(PLAYER_HOME_SCORE, playerHomeScore)
-        outState.putInt(PLAYER_AWAY_SCORE, playerAwayScore)
-    }
-
     private fun setupListeners() {
         with(binding) {
             btMainScoreHome.setOnClickListener {
-                playerHomeScore += 1
-                setupPlayHomeScore()
+                viewModel.registerPlayerHomeScore()
             }
 
             btMainScoreAway.setOnClickListener {
-                playerAwayScore += 1
-                setupPlayAwayScore()
+                viewModel.registerPlayerAwayScore()
             }
 
             btMainRematch.setOnClickListener {
-                playerHomeScore = 0
-                playerAwayScore = 0
-                rematch()
+                viewModel.rematch()
             }
 
             btMainEndGame.setOnClickListener {
@@ -74,6 +59,14 @@ class MainActivity : AppCompatActivity() {
 
             btMainShare.setOnClickListener {
                 shareWhatsApp()
+            }
+
+            viewModel.onPlayerHomeScore.observe(this@MainActivity) { points ->
+                setupPlayHomeScore(points.toString())
+            }
+
+            viewModel.onPlayerAwayScore.observe(this@MainActivity) { points ->
+                setupPlayAwayScore(points.toString())
             }
         }
     }
@@ -106,6 +99,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getWinner(): String {
+        val playerHomeScore = viewModel.onPlayerHomeScore.value ?: 0
+        val playerAwayScore = viewModel.onPlayerAwayScore.value ?: 0
         return if (playerHomeScore > playerAwayScore) {
             binding.tvMainPlayerHome.text.toString()
         } else if (playerAwayScore > playerHomeScore) {
@@ -128,24 +123,15 @@ class MainActivity : AppCompatActivity() {
         super.finish()
     }
 
-
-    private fun rematch() {
-        setupPlayHomeScore()
-        setupPlayAwayScore()
+    private fun setupPlayHomeScore(points: String) {
+        binding.tvMainScoreHome.text = points
     }
 
-    private fun setupPlayHomeScore() {
-        binding.tvMainScoreHome.text = playerHomeScore.toString()
-    }
-
-    private fun setupPlayAwayScore() {
-        binding.tvMainScoreAway.text = playerAwayScore.toString()
+    private fun setupPlayAwayScore(points: String) {
+        binding.tvMainScoreAway.text = points
     }
 
     companion object {
         const val INTENT_WINNER_PLAYER = "winnerPlayer"
-
-        private const val PLAYER_HOME_SCORE = "playerHomeScore"
-        private const val PLAYER_AWAY_SCORE = "playerAwayScore"
     }
 }
