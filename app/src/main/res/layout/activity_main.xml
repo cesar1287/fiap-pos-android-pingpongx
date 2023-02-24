@@ -8,6 +8,7 @@
 
     <TextView
         android:id="@+id/tvMainAppName"
+        style="@style/title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -18,12 +19,14 @@
 
     <TextView
         android:id="@+id/tvMainScoreHome"
+        style="@style/home_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginTop="48dp"
+        android:paddingHorizontal="32dp"
         android:text="@string/score_default"
-        android:textSize="100sp"
+        android:textSize="80sp"
         app:layout_constraintEnd_toStartOf="@id/tvMainVersus"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,11 +44,13 @@
 
     <TextView
         android:id="@+id/tvMainScoreAway"
+        style="@style/away_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
+        android:paddingHorizontal="32dp"
         android:text="@string/score_default"
-        android:textSize="100sp"
+        android:textSize="80sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tvMainVersus"
         app:layout_constraintTop_toTopOf="@id/tvMainScoreHome" />
@@ -69,8 +74,9 @@
         app:layout_constraintEnd_toEndOf="@id/tvMainScoreAway"
         app:layout_constraintTop_toTopOf="@id/tvMainPlayerHome" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btMainScoreHome"
+        style="@style/custom_button_point"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -79,8 +85,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvMainPlayerHome" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btMainScoreAway"
+        style="@style/custom_button_point"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -88,8 +95,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/btMainScoreHome" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btMainEndGame"
+        style="@style/custom_button.main_screen"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"

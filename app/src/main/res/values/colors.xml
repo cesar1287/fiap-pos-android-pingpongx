@@ -21,4 +21,6 @@
     <color name="input_hint_text_color">#EEEEEE</color>
 
     <color name="button_text_color">#FFF</color>
+
+    <color name="text_color_yellow">#E5FF00</color>
 </resources>

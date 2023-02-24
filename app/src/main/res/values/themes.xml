@@ -40,4 +40,13 @@
         <item name="android:background">@drawable/custom_button</item>
         <item name="android:textColor">@color/button_text_color</item>
     </style>
+
+    <style name="custom_button.main_screen">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="custom_button_point">
+        <item name="android:background">@drawable/custom_button_point</item>
+        <item name="android:textColor">@color/text_color_yellow</item>
+    </style>
 </resources>
