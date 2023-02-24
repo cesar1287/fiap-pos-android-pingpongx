@@ -1,4 +1,4 @@
-package com.github.cesar1287.pingpongx
+package com.github.cesar1287.pingpongx.main
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -6,12 +6,13 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
-import com.github.cesar1287.pingpongx.Constants.KEY_RESULT_EXTRA_PLAYER_AWAY_NAME
-import com.github.cesar1287.pingpongx.Constants.KEY_RESULT_EXTRA_PLAYER_AWAY_SCORE
-import com.github.cesar1287.pingpongx.Constants.KEY_RESULT_EXTRA_PLAYER_HOME_NAME
-import com.github.cesar1287.pingpongx.Constants.KEY_RESULT_EXTRA_PLAYER_HOME_SCORE
-import com.github.cesar1287.pingpongx.PlayerActivity.Companion.INTENT_PLAYER_AWAY_KEY
-import com.github.cesar1287.pingpongx.PlayerActivity.Companion.INTENT_PLAYER_HOME_KEY
+import com.github.cesar1287.pingpongx.utils.Constants.KEY_RESULT_EXTRA_PLAYER_AWAY_NAME
+import com.github.cesar1287.pingpongx.utils.Constants.KEY_RESULT_EXTRA_PLAYER_AWAY_SCORE
+import com.github.cesar1287.pingpongx.utils.Constants.KEY_RESULT_EXTRA_PLAYER_HOME_NAME
+import com.github.cesar1287.pingpongx.utils.Constants.KEY_RESULT_EXTRA_PLAYER_HOME_SCORE
+import com.github.cesar1287.pingpongx.player.PlayerActivity.Companion.INTENT_PLAYER_AWAY_KEY
+import com.github.cesar1287.pingpongx.player.PlayerActivity.Companion.INTENT_PLAYER_HOME_KEY
+import com.github.cesar1287.pingpongx.R
 import com.github.cesar1287.pingpongx.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

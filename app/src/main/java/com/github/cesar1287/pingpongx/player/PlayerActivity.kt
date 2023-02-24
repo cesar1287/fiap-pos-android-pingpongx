@@ -1,16 +1,17 @@
-package com.github.cesar1287.pingpongx
+package com.github.cesar1287.pingpongx.player
 
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.github.cesar1287.pingpongx.Constants.KEY_RESULT_EXTRA_PLAYER_AWAY_NAME
-import com.github.cesar1287.pingpongx.Constants.KEY_RESULT_EXTRA_PLAYER_AWAY_SCORE
-import com.github.cesar1287.pingpongx.Constants.KEY_RESULT_EXTRA_PLAYER_HOME_NAME
-import com.github.cesar1287.pingpongx.Constants.KEY_RESULT_EXTRA_PLAYER_HOME_SCORE
-import com.github.cesar1287.pingpongx.MainActivity.Companion.INTENT_WINNER_PLAYER
+import com.github.cesar1287.pingpongx.utils.Constants.KEY_RESULT_EXTRA_PLAYER_AWAY_NAME
+import com.github.cesar1287.pingpongx.utils.Constants.KEY_RESULT_EXTRA_PLAYER_AWAY_SCORE
+import com.github.cesar1287.pingpongx.utils.Constants.KEY_RESULT_EXTRA_PLAYER_HOME_NAME
+import com.github.cesar1287.pingpongx.utils.Constants.KEY_RESULT_EXTRA_PLAYER_HOME_SCORE
+import com.github.cesar1287.pingpongx.R
+import com.github.cesar1287.pingpongx.main.MainActivity.Companion.INTENT_WINNER_PLAYER
 import com.github.cesar1287.pingpongx.databinding.ActivityPlayerBinding
+import com.github.cesar1287.pingpongx.main.MainActivity
 
 class PlayerActivity : AppCompatActivity() {
 

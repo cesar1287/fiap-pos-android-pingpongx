@@ -1,4 +1,4 @@
-package com.github.cesar1287.pingpongx
+package com.github.cesar1287.pingpongx.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,4 @@
-package com.github.cesar1287.pingpongx
+package com.github.cesar1287.pingpongx.splash
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.animation.AnimationUtils
+import com.github.cesar1287.pingpongx.player.PlayerActivity
+import com.github.cesar1287.pingpongx.R
 import com.github.cesar1287.pingpongx.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {

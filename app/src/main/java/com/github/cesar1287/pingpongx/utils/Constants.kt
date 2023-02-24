@@ -1,4 +1,4 @@
-package com.github.cesar1287.pingpongx
+package com.github.cesar1287.pingpongx.utils
 
 object Constants {
 
