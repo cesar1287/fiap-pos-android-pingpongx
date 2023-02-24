@@ -8,6 +8,7 @@
 
     <TextView
         android:id="@+id/tvPlayerAppName"
+        style="@style/title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -18,6 +19,7 @@
 
     <TextView
         android:id="@+id/tvPlayerStartGame"
+        style="@style/subtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -28,6 +30,7 @@
 
     <TextView
         android:id="@+id/tvPlayerFillForm"
+        style="@style/description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -38,6 +41,7 @@
 
     <EditText
         android:id="@+id/etPlayerHome"
+        style="@style/home_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -51,6 +55,7 @@
 
     <EditText
         android:id="@+id/etPlayerAway"
+        style="@style/away_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -72,17 +77,18 @@
         app:layout_constraintTop_toBottomOf="@id/etPlayerAway"
         tools:text="O jogo entre Batman e Robin terminou 7 a 1" />
 
-<!--    <Button-->
-<!--        android:id="@+id/btPlayerTest"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintStart_toStartOf="@id/btPlayerStartGame"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/btPlayerStartGame"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/btPlayerStartGame"-->
-<!--        android:text="Test"/>-->
+    <!--    <Button-->
+    <!--        android:id="@+id/btPlayerTest"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintStart_toStartOf="@id/btPlayerStartGame"-->
+    <!--        app:layout_constraintEnd_toEndOf="@id/btPlayerStartGame"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/btPlayerStartGame"-->
+    <!--        android:text="Test"/>-->
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btPlayerStartGame"
+        style="@style/custom_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
